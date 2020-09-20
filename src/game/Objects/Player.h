@@ -1037,7 +1037,6 @@ class Player final: public Unit
         InventoryResult CanUseItem(Item* pItem, bool not_loading = true) const;
         InventoryResult CanUseItem(ItemPrototype const* pItem, bool not_loading = true) const;
         InventoryResult CanUseAmmo(uint32 item) const;
-        bool IsInDisallowedItemUseForm() const;
         Item* StoreNewItem(ItemPosCountVec const& pos, uint32 item, bool update, int32 randomPropertyId = 0);
         Item* StoreItem(ItemPosCountVec const& pos, Item* pItem, bool update);
         Item* EquipNewItem(uint16 pos, uint32 item, bool update);
@@ -1045,6 +1044,7 @@ class Player final: public Unit
         void AutoUnequipWeaponsIfNeed();
         void AutoUnequipOffhandIfNeed();
         void AutoUnequipItemFromSlot(uint32 slot);
+        void SatisfyItemRequirements(ItemPrototype const* pItem);
         bool StoreNewItemInBestSlots(uint32 item_id, uint32 item_count, uint32 enchantId = 0);
         Item* StoreNewItemInInventorySlot(uint32 itemEntry, uint32 amount);
         void AutoStoreLoot(Loot& loot, bool broadcast = false, uint8 bag = NULL_BAG, uint8 slot = NULL_SLOT);
